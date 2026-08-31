@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio starter — where everything goes
 
-## Getting Started
-
-First, run the development server:
+## 1. Create the Next.js project first
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx create-next-app@latest portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Answer: **JavaScript** (not TypeScript), **yes** to Tailwind CSS, **yes** to App Router,
+**no** to a `src/` directory, **yes** to the `@/*` import alias.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 2. Copy these files over the generated project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Unzip this folder and copy its contents into `portfolio/`, overwriting when asked.
+The final tree should look like this:
 
-## Learn More
+```
+portfolio/
+├── app/
+│   ├── globals.css              ← replaced
+│   ├── layout.js                ← replaced
+│   ├── page.js                  ← replaced (home / about)
+│   └── projects/
+│       ├── page.js              ← new (projects list)
+│       └── [slug]/
+│           └── page.js          ← new (one project)
+├── components/
+│   └── ProjectCard.js           ← new
+├── data/
+│   ├── site.js                  ← new (your name, links, intro text)
+│   └── projects.js              ← new (your projects)
+└── public/
+    ├── me.jpg                   ← replace with your photo
+    ├── cv.pdf                   ← add your CV here
+    └── projects/                ← project screenshots
+```
 
-To learn more about Next.js, take a look at the following resources:
+If `create-next-app` gave you `app/page.tsx` and `app/layout.tsx` (TypeScript),
+delete those two files — the `.js` versions here replace them.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3. Run it
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+cd portfolio
+npm run dev
+```
 
-## Deploy on Vercel
+Open http://localhost:3000. Every file save reloads the page instantly.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 4. What to edit
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **`data/site.js`** — your name, intro paragraphs, GitHub/LinkedIn/email, CV path.
+  Start here. The intro paragraphs accept HTML, so you can put links inside them.
+- **`data/projects.js`** — one object per project. `featured: true` also shows it
+  on the front page. `body` is an array of paragraphs for the project page.
+- **`public/cv.pdf`** — export your CV to this exact filename and it appears
+  behind the "Download CV" button and the CV link in the header.
+
+You should not need to touch the page files unless you want to change the layout.
+
+## 5. Design notes
+
+The look is deliberately quiet: one typeface (Inter), a 672px reading column,
+near-black text on white, and grey used for anything secondary. Colour is spent
+only on your project images. Things you can change safely in `app/layout.js`:
+
+- `max-w-2xl` → `max-w-3xl` for a wider column
+- `Inter` → any other font from `next/font/google`
+- `bg-white text-neutral-900` → `bg-neutral-950 text-neutral-100` for dark
+
+## 6. Deploy
+
+```bash
+git init
+git add .
+git commit -m "initial portfolio"
+git remote add origin git@github.com:yourname/portfolio.git
+git push -u origin main
+```
+
+Then on vercel.com: **Add New → Project → import the repo → Deploy**. No settings
+to change. Every later `git push` redeploys automatically.
+
+## Tailwind version note
+
+`app/globals.css` uses the Tailwind v4 syntax (`@import "tailwindcss";`), which is
+what `create-next-app` installs today. If your project is on Tailwind v3, swap that
+line for the three `@tailwind base/components/utilities` directives — the comment at
+the top of the file explains it.
