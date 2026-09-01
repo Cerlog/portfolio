@@ -6,15 +6,43 @@
 */
 @import "tailwindcss";
 
+/* One Dark Pro palette, exposed as Tailwind colour names.
+   --color-base becomes bg-base, text-base, border-base, and so on. */
+@theme {
+  --color-base: #282c34; /* page background */
+  --color-surface: #21252b; /* image boxes, cards */
+  --color-line: #3e4451; /* borders, dividers */
+  --color-body: #abb2bf; /* body text */
+  --color-heading: #dcdfe4; /* headings, brighter than body */
+  --color-muted: #5c6370; /* secondary text, timestamps */
+  --color-blue: #61afef; /* links */
+  --color-purple: #c678dd; /* tags */
+  --color-green: #98c379; /* spare accent */
+  --color-yellow: #e5c07b; /* spare accent */
+}
+
+/* Tells the browser this is a dark page, so form controls,
+   scrollbars and text selection render in matching colours. */
+html {
+  color-scheme: dark;
+}
+
 /* Links inside body prose get a quiet underline, like the reference site. */
 .prose-links a {
+  color: #61afef;
   text-decoration: underline;
-  text-decoration-color: #d4d4d4;
+  text-decoration-color: #3e4451;
   text-underline-offset: 3px;
 }
 
 .prose-links a:hover {
-  text-decoration-color: #171717;
+  text-decoration-color: #61afef;
+}
+
+/* Text selection in the editor's own selection colour. */
+::selection {
+  background-color: #3e4451;
+  color: #dcdfe4;
 }
 
 html {
