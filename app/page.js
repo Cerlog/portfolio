@@ -10,7 +10,20 @@ export default function Home() {
   return (
     <>
       <section>
-        <h1 className="text-3xl font-medium tracking-tight">
+        <div className="relative aspect-[3/4] w-44 rounded-xl bg-white p-2 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.25)] ring-1 ring-neutral-900/10">
+          <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-b from-neutral-50 to-neutral-100">
+            <Image
+              src={site.photo}
+              alt={site.fullName}
+              fill
+              sizes="176px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+
+        <h1 className="mt-6 text-3xl font-medium tracking-tight">
           Hi, I&apos;m {site.name}
         </h1>
 
@@ -37,17 +50,6 @@ export default function Home() {
           >
             Download CV
           </a>
-        </div>
-
-        <div className="relative mt-10 aspect-[3/2] overflow-hidden rounded-md bg-neutral-100">
-          <Image
-            src={site.photo}
-            alt={site.fullName}
-            fill
-            sizes="(max-width: 672px) 100vw, 672px"
-            className="object-cover"
-            priority
-          />
         </div>
       </section>
 
