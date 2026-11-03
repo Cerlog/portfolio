@@ -5,7 +5,7 @@ export default function ProjectCard({ project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+      className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
     >
       <div className="relative aspect-[3/2] overflow-hidden rounded-md bg-surface">
         <Image
