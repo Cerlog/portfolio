@@ -75,11 +75,16 @@ the colour tokens defined there.
   describe the assignment and learning goals. Summarise them in Petr's own words; never
   copy their text or publish the files.
 - Project reports (`*_project_*.pdf`, `*_report.pdf`) are what Petr's group did. Use them
-  to understand the work, but NEVER copy these PDFs into `public/` and never extract
-  figures from them.
-- Figures come only from `inbox/images/<course code>/`. If a page needs a figure that
-  isn't there, use a placeholder image and leave a TODO naming the figure Petr should
-  export.
+  to understand the work, but NEVER copy these PDFs into `public/` or publish them.
+- Figures for COURSE projects come from `inbox/images/<course code>/`. Claude may fill that
+  folder by cropping figures from Petr's own course report PDFs in `inbox/`: render the
+  page at 300 dpi, crop to the figure (with its axis labels, without the caption), and
+  save it as a PNG in `inbox/images/<course code>/`. Then copy the figures a page uses to
+  `public/images/<slug>/`. Only figures are cropped, never text pages.
+- This does NOT apply to the MSc thesis: its figures come only from Petr, never cropped
+  from the thesis.
+- If a page needs a figure that isn't available, use a placeholder image and leave a TODO
+  naming the figure Petr should export.
 - Posters (`*_poster*.pdf`, any capitalisation) may be published, but NEVER with
   student numbers on them (`s` + six digits). For every poster:
   1. Check the text layer and an OCR of a 300 dpi render for student numbers.

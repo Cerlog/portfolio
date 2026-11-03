@@ -10,9 +10,7 @@ course:
 group: true
 github: https://github.com/lukyrasocha/rStar
 poster: /files/posters/02456-rstar-robustness-poster.pdf
-# TODO: replace with a real thumbnail exported to public/thumbs/, e.g. the
-# accuracy-drop chart (report Fig. 3) or a crop of the poster.
-thumbnail: /thumbs/placeholder.jpg
+thumbnail: /thumbs/rstar-robustness.png
 featured: true
 blurb: We tested whether rStar, a search-based reasoning framework for small language models, still solves grade-school maths problems when the questions are reworded.
 links: []
@@ -62,10 +60,7 @@ accuracy survives when the questions change but the maths stays the same.
   numbers into its reasoning, so we added a sixth action to rStar. It asks the model to rewrite
   the question without the irrelevant information before reasoning about it.
 
-![Placeholder for the project overview diagram](/images/placeholder-figure.svg "Overview: GSM8K questions are turned into five kinds of variation and run through rStar's generator and discriminator.")
-
-<!-- TODO: export the project overview diagram (report Fig. 1) to
-inbox/images/02456/ and replace the placeholder above. -->
+![Diagram: the GSM8K dataset feeds four templates (names, numbers, NoOps, irrelevant information) of 20 questions each; these generate five variation datasets of 5 × 20 questions, which go through rStar's generator and discriminator, with a new custom action added, to a prediction.](/images/rstar-robustness/fig1-overview.png "Overview: GSM8K questions are turned into five kinds of variation and run through rStar's generator and discriminator.")
 
 ## Results
 
@@ -78,7 +73,7 @@ drops were larger than one standard deviation.
 | NoOps                    |                         −8 % |
 | Names and numbers        |                         −7 % |
 | Irrelevant information   |                         −6 % |
-| Different names          | smallest; within one std. dev. |
+| Different names          |                         −3 % |
 
 - **Numbers hurt most.** Changing only the numbers caused the largest drop.
   Changing names and numbers together hurt far less. One possible explanation is
@@ -96,15 +91,9 @@ drops were larger than one standard deviation.
   others it either kept the sentence or also removed information needed to solve
   the problem.
 
-![Placeholder for the accuracy chart](/images/placeholder-figure.svg "Average accuracy of rStar's discriminator and majority vote in each experiment, against the baseline.")
+![Bar chart of accuracy per experiment for the discriminator and the majority vote, with error bars and dashed baseline lines. Numbers is lowest; Names is highest.](/images/rstar-robustness/fig2-accuracy.png "Average accuracy of rStar's discriminator and majority vote in each experiment, against the baseline. Error bars show one standard deviation.")
 
-<!-- TODO: export the accuracy-by-experiment chart (report Fig. 2) to
-inbox/images/02456/ and replace the placeholder above. -->
-
-![Placeholder for the accuracy-drop chart](/images/placeholder-figure.svg "Accuracy change relative to the baseline in each experiment, alongside two results from Mirzadeh et al.")
-
-<!-- TODO: export the accuracy-drop chart (report Fig. 3) to
-inbox/images/02456/ and replace the placeholder above. -->
+![Bar chart of accuracy drops relative to the baseline: Mistral 7B on GSM-NoOp −28.3, Numbers −17.0, NoOps −8.0, Names and Numbers −7.0, Irrelevant information −6.0, Mistral 7B on GSM-Symbolic −3.4, Names −3.0.](/images/rstar-robustness/fig3-accuracy-drop.png "Accuracy change relative to the baseline in each experiment, alongside two results from Mirzadeh et al.")
 
 > [!tip] What we would do next
 > Use more questions and more variations, and repeat each run to account for the
