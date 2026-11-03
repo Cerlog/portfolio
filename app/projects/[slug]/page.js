@@ -1,71 +1,111 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { projects, getProject } from "@/data/projects";
+import { getAllProjects, getProject } from "@/lib/projects";
+import "katex/dist/katex.min.css";
+
+// Only the slugs from content/projects/ exist; anything else is a 404.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return getAllProjects().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const project = getProject(slug);
-  return { title: project ? project.title : "Not found" };
+  const project = await getProject(slug);
+  if (!project) return { title: "Not found" };
+  const url = `/projects/${slug}`;
+  return {
+    title: project.title,
+    description: project.blurb,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title: project.title,
+      description: project.blurb,
+      url,
+    },
+  };
+}
+
+const TYPE_LABELS = { poster: "Poster", report: "Report" };
+
+// ["A"] → "A", ["A", "B"] → "A and B", ["A", "B", "C"] → "A, B and C"
+function joinNames(names) {
+  return names.length < 2
+    ? names.join("")
+    : `${names.slice(0, -1).join(", ")} and ${names.at(-1)}`;
 }
 
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getProject(slug);
 
   if (!project) notFound();
 
+  const meta = [
+    project.thesis ? `${project.thesis.degree} thesis` : TYPE_LABELS[project.type],
+    project.group ? "Group project" : null,
+    ...project.tags,
+    project.year,
+  ];
+  const links = [
+    ...(project.poster ? [{ label: "Poster (PDF)", href: project.poster, download: true }] : []),
+    ...project.files.map((f) => ({ label: f.label, href: f.path, download: true })),
+    ...(project.github ? [{ label: "Code on GitHub", href: project.github }] : []),
+    ...project.links,
+  ];
+
   return (
     <article>
-      <Link
-        href="/projects"
-        className="text-sm text-neutral-500 hover:text-neutral-900"
-      >
-        Back to projects
-      </Link>
+      <header className="project-head column">
+        <p className="ui" style={{ marginBottom: "1.5rem" }}>
+          <Link href="/projects" className="quiet">All projects</Link>
+        </p>
+        <h1 className="page-title">{project.title}</h1>
+        <p className="ui muted meta">{meta.filter(Boolean).join(" · ")}</p>
+        {project.thesis && (
+          <p className="ui muted">
+            {project.thesis.institution} · Supervised by{" "}
+            {joinNames(project.thesis.supervisors)}
+          </p>
+        )}
+        {project.course && (
+          <p className="ui muted">
+            DTU course{" "}
+            <a href={project.course.url}>
+              {project.course.code} {project.course.name}
+            </a>
+          </p>
+        )}
+        {links.length > 0 && (
+          <p className="ui links">
+            {links.map((l) => (
+              <a key={l.href} href={l.href} download={l.download || undefined}>
+                {l.label}
+              </a>
+            ))}
+          </p>
+        )}
+      </header>
 
-      <h1 className="mt-6 text-3xl font-medium tracking-tight">
-        {project.title}
-      </h1>
-
-      <p className="mt-2 text-sm text-neutral-400">
-        {[...project.tags, project.year].filter(Boolean).join(" · ")}
-      </p>
-
-      <div className="relative mt-8 aspect-[3/2] overflow-hidden rounded-md bg-neutral-100">
+      <div className="hero">
         <Image
-          src={project.image}
+          src={project.thumbnail}
           alt=""
-          fill
-          sizes="(max-width: 672px) 100vw, 672px"
-          className="object-cover"
+          width={1200}
+          height={800}
+          sizes="(min-width: 64rem) 612px, 100vw"
           priority
         />
       </div>
 
-      <div className="mt-8 space-y-4 leading-relaxed text-neutral-700">
-        {project.body.map((paragraph, i) => (
-          <p key={i}>{paragraph}</p>
-        ))}
-      </div>
-
-      {project.links.length > 0 && (
-        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm">
-          {project.links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-neutral-500 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      )}
+      <div
+        className="article"
+        style={{ marginTop: "2.5rem" }}
+        dangerouslySetInnerHTML={{ __html: project.html }}
+      />
     </article>
   );
 }

@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# private working files, never commit
+/inbox/
+
+# screenshots from npm run shots
+/.shots/
