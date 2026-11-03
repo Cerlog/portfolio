@@ -19,13 +19,13 @@ export default function Image() {
           padding: 80,
           background: ogColors.bg,
           color: ogColors.fg,
-          fontFamily: "Inter",
+          fontFamily: "Source Serif 4",
         }}
       >
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img src={publicDataUri("/monogram.svg")} width={96} height={96} />
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 72, fontWeight: 500, letterSpacing: -2 }}>
+          <div style={{ fontSize: 72, fontWeight: 600, letterSpacing: -2 }}>
             {site.fullName}
           </div>
           <div style={{ marginTop: 20, fontSize: 32, color: ogColors.muted }}>

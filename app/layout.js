@@ -1,8 +1,14 @@
-import { Inter } from "next/font/google";
+import { Source_Serif_4 } from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+const serif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-source-serif",
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL(site.url),
@@ -21,8 +27,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body className="bg-bg text-fg antialiased">{children}</body>
+    <html lang="en" className={serif.variable}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

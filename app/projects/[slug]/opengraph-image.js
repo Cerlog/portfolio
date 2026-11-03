@@ -33,7 +33,7 @@ export default async function Image({ params }) {
           padding: 72,
           background: ogColors.bg,
           color: ogColors.fg,
-          fontFamily: "Inter",
+          fontFamily: "Source Serif 4",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
@@ -42,7 +42,7 @@ export default async function Image({ params }) {
             style={{
               marginTop: 24,
               fontSize: 52,
-              fontWeight: 500,
+              fontWeight: 600,
               lineHeight: 1.15,
               letterSpacing: -1,
             }}

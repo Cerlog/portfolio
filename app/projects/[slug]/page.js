@@ -50,99 +50,62 @@ export default async function ProjectPage({ params }) {
     ...project.tags,
     project.year,
   ];
-  const downloads = [
-    ...(project.poster ? [{ label: "Poster (PDF)", path: project.poster }] : []),
-    ...project.files,
-  ];
   const links = [
+    ...(project.poster ? [{ label: "Poster (PDF)", href: project.poster, download: true }] : []),
+    ...project.files.map((f) => ({ label: f.label, href: f.path, download: true })),
     ...(project.github ? [{ label: "Code on GitHub", href: project.github }] : []),
     ...project.links,
   ];
 
   return (
     <article>
-      <Link
-        href="/projects"
-        className="text-sm text-muted hover:text-fg"
-      >
-        Back to projects
-      </Link>
-
-      <h1 className="mt-6 text-3xl font-medium tracking-tight">
-        {project.title}
-      </h1>
-
-      <p className="mt-2 text-sm text-muted">
-        {meta.filter(Boolean).join(" · ")}
-      </p>
-
-      {project.thesis && (
-        <p className="mt-1 text-sm text-muted">
-          {project.thesis.institution} · Supervised by{" "}
-          {joinNames(project.thesis.supervisors)}
+      <header className="project-head column">
+        <p className="ui" style={{ marginBottom: "1.5rem" }}>
+          <Link href="/projects" className="quiet">All projects</Link>
         </p>
-      )}
+        <h1 className="page-title">{project.title}</h1>
+        <p className="ui muted meta">{meta.filter(Boolean).join(" · ")}</p>
+        {project.thesis && (
+          <p className="ui muted">
+            {project.thesis.institution} · Supervised by{" "}
+            {joinNames(project.thesis.supervisors)}
+          </p>
+        )}
+        {project.course && (
+          <p className="ui muted">
+            DTU course{" "}
+            <a href={project.course.url}>
+              {project.course.code} {project.course.name}
+            </a>
+          </p>
+        )}
+        {links.length > 0 && (
+          <p className="ui links">
+            {links.map((l) => (
+              <a key={l.href} href={l.href} download={l.download || undefined}>
+                {l.label}
+              </a>
+            ))}
+          </p>
+        )}
+      </header>
 
-      {project.course && (
-        <p className="mt-1 text-sm text-muted">
-          DTU course{" "}
-          <a
-            href={project.course.url}
-            className="underline decoration-line underline-offset-4 hover:text-fg"
-          >
-            {project.course.code} {project.course.name}
-          </a>
-        </p>
-      )}
-
-      <div className="relative mt-8 aspect-[3/2] overflow-hidden rounded-md bg-surface">
+      <div className="hero">
         <Image
           src={project.thumbnail}
           alt=""
-          fill
-          sizes="(max-width: 672px) 100vw, 672px"
-          className="bg-figure object-cover"
+          width={1200}
+          height={800}
+          sizes="(min-width: 64rem) 612px, 100vw"
           priority
         />
       </div>
 
       <div
-        className="prose mt-8"
+        className="article"
+        style={{ marginTop: "2.5rem" }}
         dangerouslySetInnerHTML={{ __html: project.html }}
       />
-
-      {downloads.length > 0 && (
-        <section className="mt-12">
-          <h2 className="text-sm font-medium">Downloads</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            {downloads.map((file) => (
-              <li key={file.path}>
-                <a
-                  href={file.path}
-                  download
-                  className="text-accent underline decoration-line underline-offset-4 hover:decoration-accent"
-                >
-                  {file.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {links.length > 0 && (
-        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-muted underline decoration-line underline-offset-4 hover:text-fg"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      )}
     </article>
   );
 }

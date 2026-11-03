@@ -1,4 +1,4 @@
-import ProjectCard from "@/components/ProjectCard";
+import WorkRow from "@/components/WorkRow";
 import { getAllProjects } from "@/lib/projects";
 
 const description =
@@ -14,26 +14,25 @@ export const metadata = {
 export default function ProjectsPage() {
   const projects = getAllProjects();
   const sections = [
-    { title: "Theses", items: projects.filter((p) => p.type === "thesis") },
-    { title: "Course projects", items: projects.filter((p) => p.type !== "thesis") },
+    { title: "Theses", items: projects.filter((p) => p.type === "thesis"), small: false },
+    { title: "Course projects", items: projects.filter((p) => p.type !== "thesis"), small: true },
   ].filter((s) => s.items.length > 0);
 
   return (
     <section>
-      <h1 className="text-3xl font-medium tracking-tight">Projects</h1>
-
-      <p className="mt-4 leading-relaxed text-muted">
-        Coursework, thesis work, and things I built on my own time.
+      <h1 className="page-title">Projects</h1>
+      <p className="muted" style={{ marginTop: "0.75rem" }}>
+        My MSc and BSc theses, and project work from DTU courses.
       </p>
 
       {sections.map((section) => (
-        <section key={section.title} className="mt-14">
-          <h2 className="text-xl font-medium tracking-tight">{section.title}</h2>
-          <div className="mt-8 grid gap-10 sm:grid-cols-2">
-            {section.items.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+        <section key={section.title}>
+          <h2 className="section-title">{section.title}</h2>
+          <ul className="figure-list">
+            {section.items.map((p) => (
+              <WorkRow key={p.slug} project={p} small={section.small} />
             ))}
-          </div>
+          </ul>
         </section>
       ))}
     </section>

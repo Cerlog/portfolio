@@ -6,20 +6,16 @@ export const metadata = { title: "Page not found" };
 export default function NotFound() {
   return (
     <SiteChrome>
-    <section>
-      <h1 className="text-3xl font-medium tracking-tight">Page not found</h1>
-      <p className="mt-4 leading-relaxed text-muted">
-        This page doesn&apos;t exist, or it has moved.
-      </p>
-      <p className="mt-8 flex gap-6 text-sm">
-        <Link href="/" className="underline decoration-line underline-offset-4 hover:decoration-fg">
-          Home
-        </Link>
-        <Link href="/projects" className="underline decoration-line underline-offset-4 hover:decoration-fg">
-          All projects
-        </Link>
-      </p>
-    </section>
+      <section className="column">
+        <h1 className="page-title">Page not found</h1>
+        <p className="muted" style={{ marginTop: "0.75rem" }}>
+          This page doesn&apos;t exist, or it has moved.
+        </p>
+        <p className="ui" style={{ marginTop: "1.5rem", display: "flex", gap: "1.5rem" }}>
+          <Link href="/">Home</Link>
+          <Link href="/projects">All projects</Link>
+        </p>
+      </section>
     </SiteChrome>
   );
 }

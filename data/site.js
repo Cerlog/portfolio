@@ -9,6 +9,8 @@ export const site = {
   title: "Petr — Machine Learning & Data Science",
   // One line under the name on the front page.
   role: "MSc in Mathematical Modelling and Computation · Machine learning & data science",
+  // One sentence for the left column, the first sentence of the About text.
+  bio: "I am an MSc graduate in Mathematical Modelling and Computation from the Technical University of Denmark (DTU), specializing in Data Science and Machine Learning.",
   description:
     "Personal website of Petr Boska Nylander, MSc graduate in Mathematical Modelling and Computation from DTU.",
 
