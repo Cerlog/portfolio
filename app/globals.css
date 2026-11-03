@@ -220,6 +220,60 @@
   color: var(--color-muted);
 }
 
+/* Callouts (lib/remark-callouts.js). A thin left rule and a small label;
+   warning and important use a darker rule instead of a colour. */
+.prose .callout {
+  border-left: 2px solid var(--color-line);
+  padding: 0.125rem 0 0.125rem 1rem;
+}
+
+.prose .callout[data-callout="warning"],
+.prose .callout[data-callout="important"] {
+  border-left-color: var(--color-fg);
+}
+
+.prose .callout > * + * {
+  margin-top: 0.75rem;
+}
+
+.prose .callout-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-muted);
+}
+
+.prose summary.callout-label {
+  cursor: pointer;
+  list-style: none;
+  width: fit-content;
+}
+
+.prose summary.callout-label::-webkit-details-marker {
+  display: none;
+}
+
+.prose summary.callout-label::after {
+  content: "Show";
+  margin-left: 0.75rem;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: var(--color-line);
+  text-underline-offset: 3px;
+}
+
+.prose details[open] > summary.callout-label::after {
+  content: "Hide";
+}
+
+.prose summary.callout-label:hover {
+  color: var(--color-fg);
+}
+
+.prose summary.callout-label:hover::after {
+  text-decoration-color: currentColor;
+}
+
 /* Footnotes (GFM) */
 .prose sup a {
   text-decoration: none;
