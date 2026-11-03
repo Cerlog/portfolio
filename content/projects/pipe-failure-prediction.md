@@ -7,7 +7,6 @@ thesis:
   institution: DTU Sustain, Technical University of Denmark
   supervisors: [Roland Löwe, Frederik Tinus Jeppesen]
 tags: [Survival analysis, Machine learning, Water infrastructure]
-group: true
 # TODO: replace with a real thumbnail in public/thumbs/ (a figure Petr exports;
 # never a map or anything showing pipe locations).
 thumbnail: /thumbs/placeholder.jpg
@@ -17,13 +16,13 @@ links: []
 files: []
 ---
 
-We tested whether weather, soil and nearby roads and railways help predict which
+I tested whether weather, soil and nearby roads and railways help predict which
 drinking-water pipes will fail, beyond what the pipes' own age, length, material
 and diameter already tell us.
 
 > [!note] About this thesis
-> My MSc thesis at DTU Sustain, written together with TODO: co-author's full
-> name, and supervised by Roland Löwe and Frederik Tinus Jeppesen. It was
+> My MSc thesis at DTU Sustain, supervised by Roland Löwe and Frederik Tinus
+> Jeppesen. It was
 > carried out in collaboration with Envidan, using pipe and failure data from
 > HOFOR, VandCenter Syd and Aarhus Vand.
 
@@ -74,14 +73,14 @@ pipe characteristics. Earlier studies agree that a pipe's own attributes (age,
 length, diameter and material) are the strongest predictors. Weather, soil and
 other surroundings have also been linked to failures, but how much they add to
 the predictions is less clear, and no similar study had been done for Danish
-networks. Our research question was therefore: to what extent does
+networks. My research question was therefore: to what extent does
 environmental data improve the prediction of water pipe failures, compared with
 the pipes' own attributes, in a Danish setting?
 
-To answer it, we asked:
+To answer it, I asked:
 - which environmental factors are the best established in the literature
 - which of them can be obtained from open Danish data
-- how they relate to the failures we observed
+- how they relate to the observed failures
 - whether they improve the models' predictions
 - which features matter most
 
@@ -94,7 +93,7 @@ To answer it, we asked:
   and the distance to roads and to railways (traffic loading). These come from
   open sources: DMI, GEUS and GeoDanmark.
 - **Discrete-time survival analysis** combined with machine-learning models.
-  We compared models that use only the pipes' own attributes with models that
+  I compared models that use only the pipes' own attributes with models that
   also include the environmental and infrastructure features.
 
 ## Findings
@@ -107,7 +106,7 @@ To answer it, we asked:
 - **None of them improved the predictions.** Adding the environmental and
   infrastructure features did not improve predictive performance beyond the
   pipes' own attributes.
-- **That does not make them unimportant.** Our method could not show an
+- **That does not make them unimportant.** My method could not show an
   improvement, but a different way of formulating or including these features
   might. Finding one would help utilities rank pipes by failure risk, lowering
   renewal costs and reducing water loss further.
@@ -121,7 +120,3 @@ and replace the placeholder above. No maps or pipe locations. -->
 
 <!-- TODO: Petr to export a model comparison (with vs. without the environmental
 features) to inbox/images/thesis-msc/ and replace the placeholder above. -->
-
-## My contribution
-
-TODO: Petr to write: which parts of the thesis were mine.

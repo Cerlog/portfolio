@@ -33,7 +33,7 @@ export const site = {
     and
     <a href="https://www.aarhusvand.dk/" target="_blank" rel="noreferrer">Aarhus Vand</a>.`,
 
-    `My part of the thesis focused on statistical modelling and machine learning for
+    `My thesis focused on statistical modelling and machine learning for
     pipe-failure prediction, including discrete-time survival analysis. I combined utility
     data with environmental and infrastructure data from
     <a href="https://www.dmi.dk/friedata" target="_blank" rel="noreferrer">DMI</a>,

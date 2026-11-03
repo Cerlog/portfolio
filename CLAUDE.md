@@ -118,7 +118,8 @@ MSc thesis (`content/projects/pipe-failure-prediction.md`):
 - No network maps or anything that shows pipe locations.
 - The abstract is Petr's own writing and may be shown in full; summarise the introduction
   and conclusion in Petr's voice.
-- Joint work: mark it `group: true` and credit the co-author by name. Credit DTU Sustain,
+- Individual work: no `group` flag, no co-author, no "My contribution" section, and
+  written as "I", not "we". Credit DTU Sustain,
   supervisors Roland Löwe and Frederik Tinus Jeppesen, and the collaboration with Envidan,
   HOFOR, VandCenter Syd and Aarhus Vand, consistently with `data/site.js`.
 
