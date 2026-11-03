@@ -61,6 +61,37 @@ The body supports GitHub-flavoured Markdown (tables, footnotes, task lists),
 Styles for rendered Markdown live in the `.prose` block in `app/globals.css` and use only
 the colour tokens defined there.
 
+## Source material rules
+- `inbox/` is private source material and is never committed or published (it is in
+  `.gitignore`).
+- Files named `*_project_description.*` or `*_course_contents.*` are written by DTU. They
+  describe the assignment and learning goals. Summarise them in Petr's own words; never
+  copy their text or publish the files.
+- Project reports (`*_project_*.pdf`, `*_report.pdf`) are what Petr's group did. Use them
+  to understand the work, but NEVER copy these PDFs into `public/` and never extract
+  figures from them.
+- Figures come only from `inbox/images/<course code>/`. If a page needs a figure that
+  isn't there, use a placeholder image and leave a TODO naming the figure Petr should
+  export.
+- Posters (`*_poster*.pdf`) may be published.
+- `*_github.md` files contain the repository link for that course.
+- Never invent results, numbers or claims. Only use what is in the material.
+
+## Course project page template
+One Markdown file in `content/projects/`.
+
+- Frontmatter: title, year, tags, course (code, official name, and URL
+  `https://kurser.dtu.dk/course/<code>`), group project yes/no, GitHub link, poster path
+  if one exists, thumbnail.
+- Fetch each course page to get the official course name. Don't guess it.
+- Sections: a one-sentence summary; "The assignment" (task and learning goals, short);
+  "What we did" (approach); "Results"; "My contribution" (left as a TODO for Petr to
+  write); figures.
+- Use callouts sparingly: at most two per page, e.g. a `[!note]` for course context or a
+  `[!tip]` for what Petr would do differently.
+- Wherever a figure would help but none is available, put in a placeholder image plus a
+  TODO naming the figure to export; Petr replaces it.
+
 ## Design rules (important)
 The site should look like a careful person made it by hand, not like a template.
 Reference for tone: lukasrasocha.com — quiet, typographic, content first.
