@@ -67,7 +67,7 @@ accuracy survives when the questions change but the maths stays the same.
 Accuracy fell compared with the baseline in every experiment. All but one of the
 drops were larger than one standard deviation.
 
-| Variation                | Accuracy change vs. baseline |
+| Variation                | Change vs. baseline (as reported) |
 | :----------------------- | ---------------------------: |
 | Different numbers        |                        −17 % |
 | NoOps                    |                         −8 % |
