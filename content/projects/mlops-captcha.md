@@ -21,8 +21,8 @@ cloud service, using the tools a production ML team would use.
 
 > [!note] Course context
 > The group project in DTU's three-week Machine Learning Operations course
-> (January 2025). I worked on it with Jone Steinhoff, Mads Prip and TODO: names
-> of the other two group members.
+> (January 2025). I worked on it with Jone Steinhoff, Mads Prip and two other
+> group members.
 
 ## The assignment
 
