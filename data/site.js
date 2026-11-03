@@ -45,7 +45,7 @@ export const site = {
 
     `Before DTU, I studied at
     <a href="https://ruc.dk/en" target="_blank" rel="noreferrer">Roskilde University</a>,
-    where I received my BSc in Mathematical Modelling. My bachelor project, supervised by
+    where I received my BSc in Natural Science (Mathematical Modelling and Computation). My bachelor project, supervised by
     <a href="https://forskning.ruc.dk/en/persons/johnny/" target="_blank" rel="noreferrer">
     Johnny T. Ottesen</a>, focused on analysing, simulating and simplifying a physiological
     system described by nine coupled differential equations.`,

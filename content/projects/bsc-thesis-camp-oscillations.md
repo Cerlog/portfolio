@@ -4,7 +4,7 @@ year: 2023
 type: thesis
 thesis:
   degree: BSc
-  institution: Roskilde University
+  institution: BSc in Natural Science (Mathematical Modelling and Computation), Roskilde University
   supervisors: [Johnny T. Ottesen]
 tags: [Dynamical systems, Mathematical biology, Bifurcation analysis]
 group: true
