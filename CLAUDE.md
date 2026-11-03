@@ -90,6 +90,8 @@ the colour tokens defined there.
   4. Tell Petr which posters were redacted, so he can re-export them from the source file
      if he has it.
   Posters without student numbers can be copied to `public/files/posters/` unchanged.
+  Every published poster must be under 3 MB with text readable at 100% zoom: if needed,
+  re-render at 150 dpi as JPEG (quality 0.6-0.8) and check the smallest text by eye.
   Credit groupmates by name only, never with student numbers.
 - `*_github.md` files contain the repository link for that course.
 - Never invent results, numbers or claims. Only use what is in the material.
@@ -115,7 +117,7 @@ One Markdown file in `content/projects/`.
   | 02807 | Computational Tools for Data Science            |
 
   For a course not in this table, ask Petr for the name. Don't guess it.
-- Sections: a one-sentence summary; "The assignment" (task and learning goals, short);
+- Sections: a one-sentence summary; "The assignment" (the task only, short; no learning goals);
   "What we did" (approach); "Results"; "My contribution" (left as a TODO for Petr to
   write); figures.
 - Use callouts sparingly: at most two per page, e.g. a `[!note]` for course context or a

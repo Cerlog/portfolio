@@ -13,7 +13,7 @@ poster: /files/posters/02456-rstar-robustness-poster.pdf
 # TODO: replace with a real thumbnail exported to public/thumbs/, e.g. the
 # accuracy-drop chart (report Fig. 3) or a crop of the poster.
 thumbnail: /thumbs/placeholder.jpg
-featured: false
+featured: true
 blurb: We tested whether rStar, a search-based reasoning framework for small language models, still solves grade-school maths problems when the questions are reworded.
 links: []
 files: []
