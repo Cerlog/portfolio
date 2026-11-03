@@ -14,7 +14,19 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = await getProject(slug);
-  return { title: project ? project.title : "Not found" };
+  if (!project) return { title: "Not found" };
+  const url = `/projects/${slug}`;
+  return {
+    title: project.title,
+    description: project.blurb,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title: project.title,
+      description: project.blurb,
+      url,
+    },
+  };
 }
 
 const TYPE_LABELS = { poster: "Poster", report: "Report" };

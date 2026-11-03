@@ -6,8 +6,18 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
-  title: site.title,
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: `%s — ${site.fullName}` },
   description: site.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: site.fullName,
+    title: site.title,
+    description: site.description,
+    url: "/",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }) {

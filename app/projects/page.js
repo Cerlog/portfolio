@@ -1,8 +1,14 @@
 import ProjectCard from "@/components/ProjectCard";
 import { getAllProjects } from "@/lib/projects";
 
+const description =
+  "Thesis work and course projects in machine learning, computer vision and data science by Petr Boska Nylander.";
+
 export const metadata = {
   title: "Projects",
+  description,
+  alternates: { canonical: "/projects" },
+  openGraph: { type: "website", title: "Projects", description, url: "/projects" },
 };
 
 export default function ProjectsPage() {

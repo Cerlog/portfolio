@@ -3,6 +3,9 @@
 export const site = {
   name: "Petr",
   fullName: "Petr Boska Nylander",
+  // Used for absolute links in previews and the sitemap.
+  // TODO: Petr to change this when the custom domain is set up.
+  url: "https://portfolio-beta-taupe-66.vercel.app",
   title: "Petr — Machine Learning & Data Science",
   // One line under the name on the front page.
   role: "MSc in Mathematical Modelling and Computation · Machine learning & data science",
