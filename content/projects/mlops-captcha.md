@@ -8,10 +8,8 @@ course:
   name: Machine Learning Operations
   url: https://kurser.dtu.dk/course/02476
 group: true
-github: https://github.com/s204431/mlops-CAPTCHA
-# TODO: replace with a real thumbnail, e.g. the architecture diagram (see the
-# figure TODO below).
-thumbnail: /thumbs/placeholder.jpg
+github: https://github.com/Cerlog/02476-mlops-captcha
+thumbnail: /thumbs/mlops-captcha.png
 featured: true
 blurb: A CAPTCHA character classifier taken from training to a monitored cloud service, with data versioning, tests, CI, containers and an API.
 links: []
@@ -55,10 +53,7 @@ in a report template that lives in the repository.
 - **Monitoring.** The service exposes a `/metrics` endpoint with usage metrics,
   and an alerting system warns when something goes wrong.
 
-![Placeholder for the architecture diagram](/images/placeholder-figure.svg "Architecture: from local development with PyTorch Lightning, through version control, CI and container builds, to cloud training, deployment and monitoring.")
-
-<!-- TODO: export the architecture diagram from the repository's report
-(reports/figures/) to inbox/images/02476/ and replace the placeholder above. -->
+![Architecture diagram: a developer sets up locally, tunes hyperparameters and tracks runs in Weights & Biases, and pushes to GitHub, where pre-commit and CI run tests, formatting, data checks and Dependabot. A GCP trigger builds Docker images stored in a bucket. Compute Engine and Vertex AI train the model using data and keys from a GCP bucket and Secret Manager. Cloud Run deploys the backend API and frontend, where a user uploads an image and gets a prediction.](/images/mlops-captcha/architecture.png "Architecture of the pipeline, from local development through CI, container builds and cloud training to the deployed API and frontend.")
 
 ## Results
 
