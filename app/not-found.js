@@ -1,9 +1,11 @@
 import Link from "next/link";
+import SiteChrome from "@/components/SiteChrome";
 
 export const metadata = { title: "Page not found" };
 
 export default function NotFound() {
   return (
+    <SiteChrome>
     <section>
       <h1 className="text-3xl font-medium tracking-tight">Page not found</h1>
       <p className="mt-4 leading-relaxed text-muted">
@@ -18,5 +20,6 @@ export default function NotFound() {
         </Link>
       </p>
     </section>
+    </SiteChrome>
   );
 }

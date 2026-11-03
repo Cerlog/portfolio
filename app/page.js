@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
+import SiteChrome from "@/components/SiteChrome";
 import { getAllProjects } from "@/lib/projects";
 import { site } from "@/data/site";
 
@@ -21,7 +22,7 @@ export default function Home() {
   const slugs = new Set(projects.map((p) => p.slug));
 
   return (
-    <>
+    <SiteChrome>
       <header>
         <h1 className="text-3xl font-medium tracking-tight">{site.fullName}</h1>
         <p className="mt-2 text-muted">{site.role}</p>
@@ -148,6 +149,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-    </>
+    </SiteChrome>
   );
 }
