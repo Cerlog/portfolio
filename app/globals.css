@@ -1,52 +1,44 @@
-/* Tailwind v4 (what create-next-app installs today) needs only this line.
-   If you are on Tailwind v3, replace it with the three @tailwind directives:
-     @tailwind base;
-     @tailwind components;
-     @tailwind utilities;
-*/
 @import "tailwindcss";
 
-/* One Dark Pro palette, exposed as Tailwind colour names.
-   --color-base becomes bg-base, text-base, border-base, and so on. */
+/* Colour tokens. Each one is a CSS variable (e.g. var(--color-accent)) and a
+   Tailwind colour name (e.g. text-accent, border-line, bg-bg). */
 @theme {
-  --color-base: #282c34; /* page background */
-  --color-surface: #21252b; /* image boxes, cards */
-  --color-line: #3e4451; /* borders, dividers */
-  --color-body: #abb2bf; /* body text */
-  --color-heading: #dcdfe4; /* headings, brighter than body */
-  --color-muted: #5c6370; /* secondary text, timestamps */
-  --color-blue: #61afef; /* links */
-  --color-purple: #c678dd; /* tags */
-  --color-green: #98c379; /* spare accent */
-  --color-yellow: #e5c07b; /* spare accent */
+  --color-bg: #ffffff; /* page background */
+  --color-fg: #171717; /* body text and headings, 17.9:1 on white */
+  --color-muted: #525252; /* secondary text, 7.8:1 on white */
+  --color-line: #e5e5e5; /* borders, dividers */
+  --color-accent: #1d4ed8; /* links and focus states only, 6.7:1 on white */
 }
 
-/* Tells the browser this is a dark page, so form controls,
-   scrollbars and text selection render in matching colours. */
-html {
-  color-scheme: dark;
+/* Base rules sit in the base layer so Tailwind utilities can override them. */
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  /* Visible keyboard focus everywhere, in the accent colour. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
 }
 
-/* Links inside body prose get a quiet underline, like the reference site. */
+/* Links inside body prose: accent colour, quiet underline that darkens on hover. */
 .prose-links a {
-  color: #61afef;
+  color: var(--color-accent);
   text-decoration: underline;
-  text-decoration-color: #3e4451;
+  text-decoration-color: var(--color-line);
   text-underline-offset: 3px;
 }
 
 .prose-links a:hover {
-  text-decoration-color: #61afef;
-}
-
-/* Text selection in the editor's own selection colour. */
-::selection {
-  background-color: #3e4451;
-  color: #dcdfe4;
-}
-
-html {
-  scroll-behavior: smooth;
+  text-decoration-color: var(--color-accent);
 }
 
 @media (prefers-reduced-motion: reduce) {
