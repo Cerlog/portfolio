@@ -34,7 +34,7 @@ Frontmatter (the build fails with the file name if a required field is wrong):
 ---
 title: Predicting water pipe failures   # required
 year: 2026                              # required; projects are sorted newest first
-type: project                           # required: project | poster | report
+type: project                           # required: project | poster | report | thesis
 tags: [Survival analysis, DTU]
 thumbnail: /thumbs/pipes.jpg            # required, must be in public/thumbs/
 featured: true                          # also show on the front page
@@ -42,7 +42,7 @@ blurb: One sentence shown on the card.
 links:                                  # external links, e.g. the code
   - { label: Code, href: "https://github.com/..." }
 files:                                  # downloads, must be in public/files/
-  - { label: Report (PDF), path: /files/thesis.pdf }
+  - { label: Data (CSV), path: /files/example.csv }
 course:                                 # optional, for DTU course projects
   code: "02456"                         # quoted, so YAML keeps the leading zero
   name: Deep Learning                   # from the course table below
@@ -100,6 +100,36 @@ the colour tokens defined there.
   Credit groupmates by name only, never with student numbers.
 - `*_github.md` files contain the repository link for that course.
 - Never invent results, numbers or claims. Only use what is in the material.
+
+## Thesis pages
+Frontmatter `type: thesis` with a `thesis:` block (`degree: MSc | BSc`, `institution`,
+`supervisors`). Theses appear in their own "Theses" section at the top of /projects.
+Sections: one-sentence summary, the problem, data (or model) and approach, findings,
+"My contribution" (TODO for Petr), figures.
+
+MSc thesis (`content/projects/pipe-failure-prediction.md`):
+- The thesis contains proprietary information. Use ONLY `inbox/MSC_thesis_Abstract.tex`,
+  the uncommented text of `inbox/MSC_thesis_1_Introduction.tex`,
+  `inbox/MSC_thesis_8_Conclusion.tex`, and figures Petr provides in
+  `inbox/images/thesis-msc/`. Never use the acknowledgements file, commented-out (`%`)
+  text, or details from anywhere else.
+- Never publish the thesis PDF or any part of it beyond the above. Never crop figures from
+  the thesis; figures come only from Petr.
+- No network maps or anything that shows pipe locations.
+- The abstract is Petr's own writing and may be shown in full; summarise the introduction
+  and conclusion in Petr's voice.
+- Joint work: mark it `group: true` and credit the co-author by name. Credit DTU Sustain,
+  supervisors Roland Löwe and Frederik Tinus Jeppesen, and the collaboration with Envidan,
+  HOFOR, VandCenter Syd and Aarhus Vand, consistently with `data/site.js`.
+
+BSc thesis (`content/projects/bsc-thesis-camp-oscillations.md`):
+- Source: `inbox/Bachelor_Thesis.pdf` (Roskilde University, 2023, supervisor Johnny T.
+  Ottesen). The PDF is NEVER published.
+- Figures may be cropped from it like course reports (300 dpi, PNG in
+  `inbox/images/thesis-bsc/`). Skip figures the thesis took from other authors.
+- Group work: credit Rasmus W. Christiansen, Julien Hirsch, Marina Nocera and Ingvar
+  Hjartarson by name, never with student numbers (the cover lists 5-digit RUC numbers).
+- The thesis summary is group writing: summarise it in Petr's own words; don't quote it.
 
 ## Course project page template
 One Markdown file in `content/projects/`.

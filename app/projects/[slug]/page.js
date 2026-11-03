@@ -19,6 +19,13 @@ export async function generateMetadata({ params }) {
 
 const TYPE_LABELS = { poster: "Poster", report: "Report" };
 
+// ["A"] → "A", ["A", "B"] → "A and B", ["A", "B", "C"] → "A, B and C"
+function joinNames(names) {
+  return names.length < 2
+    ? names.join("")
+    : `${names.slice(0, -1).join(", ")} and ${names.at(-1)}`;
+}
+
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
   const project = await getProject(slug);
@@ -26,7 +33,7 @@ export default async function ProjectPage({ params }) {
   if (!project) notFound();
 
   const meta = [
-    TYPE_LABELS[project.type],
+    project.thesis ? `${project.thesis.degree} thesis` : TYPE_LABELS[project.type],
     project.group ? "Group project" : null,
     ...project.tags,
     project.year,
@@ -56,6 +63,13 @@ export default async function ProjectPage({ params }) {
       <p className="mt-2 text-sm text-neutral-400">
         {meta.filter(Boolean).join(" · ")}
       </p>
+
+      {project.thesis && (
+        <p className="mt-1 text-sm text-neutral-500">
+          {project.thesis.institution} · Supervised by{" "}
+          {joinNames(project.thesis.supervisors)}
+        </p>
+      )}
 
       {project.course && (
         <p className="mt-1 text-sm text-neutral-500">
