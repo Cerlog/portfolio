@@ -28,7 +28,7 @@ are reworded.
 
 ## The assignment
 
-rStar is a published method that pairs a small open-source language model with
+rStar[^qi] is a published method that pairs a small open-source language model with
 Monte Carlo tree search. The model explores different reasoning steps, and
 answers that the model reaches consistently are rewarded. The authors report
 large gains on maths benchmarks. Our brief was to understand how the method
@@ -40,7 +40,7 @@ cannot have been in the model's training data.
 
 Benchmarks such as GSM8K (grade-school maths word problems) may flatter a model
 if some of the test questions leaked into its training data. Following the
-GSM-Symbolic approach of Mirzadeh et al., we checked how much of rStar's
+GSM-Symbolic approach of Mirzadeh et al.,[^gsm] we checked how much of rStar's
 accuracy survives when the questions change but the maths stays the same.
 
 - **Baseline.** We picked 20 random questions from the GSM8K test set and ran
@@ -104,3 +104,7 @@ drops were larger than one standard deviation.
 ## My contribution
 
 TODO: Petr to write: which parts of the project were mine.
+
+[^qi]: Z. Qi, M. Ma, J. Xu, L. L. Zhang, F. Yang and M. Yang, “Mutual reasoning makes smaller LLMs stronger problem-solvers,” 2024.
+
+[^gsm]: I. Mirzadeh, K. Alizadeh, H. Shahrokhi, O. Tuzel, S. Bengio and M. Farajtabar, “GSM-Symbolic: Understanding the limitations of mathematical reasoning in large language models,” 2024.
