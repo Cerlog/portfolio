@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <section>
-        <div className="relative aspect-[3/4] w-44 rounded-xl bg-white p-2 ring-1 ring-neutral-900/10">
-          <div className="relative h-full w-full overflow-hidden rounded-lg bg-neutral-100">
+        <div className="relative aspect-[3/4] w-44 rounded-xl bg-bg p-2 ring-1 ring-line">
+          <div className="relative h-full w-full overflow-hidden rounded-lg bg-surface">
             <Image
               src={site.photo}
               alt={site.fullName}
@@ -27,7 +27,7 @@ export default function Home() {
           Hi, I&apos;m {site.name}
         </h1>
 
-        <div className="prose-links mt-6 space-y-4 leading-relaxed text-neutral-700">
+        <div className="prose-links mt-6 space-y-4 leading-relaxed text-fg">
           {site.intro.map((paragraph, i) => (
             <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />
           ))}
@@ -38,7 +38,7 @@ export default function Home() {
             <a
               key={link.label}
               href={link.href}
-              className="text-neutral-500 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
+              className="text-muted underline decoration-line underline-offset-4 hover:text-fg"
             >
               {link.label}
             </a>
@@ -46,7 +46,7 @@ export default function Home() {
 
           <a
             href={site.cv}
-            className="rounded-full border border-neutral-300 px-4 py-1.5 hover:border-neutral-900"
+            className="rounded-full border border-line px-4 py-1.5 hover:border-fg"
           >
             Download CV
           </a>
@@ -58,7 +58,7 @@ export default function Home() {
           <h2 className="text-xl font-medium tracking-tight">Selected work</h2>
           <Link
             href="/projects"
-            className="text-sm text-neutral-500 hover:text-neutral-900"
+            className="text-sm text-muted hover:text-fg"
           >
             All projects
           </Link>

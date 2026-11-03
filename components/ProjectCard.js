@@ -7,7 +7,7 @@ export default function ProjectCard({ project }) {
       href={`/projects/${project.slug}`}
       className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
     >
-      <div className="relative aspect-[3/2] overflow-hidden rounded-md bg-neutral-100">
+      <div className="relative aspect-[3/2] overflow-hidden rounded-md bg-surface">
         <Image
           src={project.thumbnail}
           alt=""
@@ -21,11 +21,11 @@ export default function ProjectCard({ project }) {
         {project.title}
       </h3>
 
-      <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+      <p className="mt-1 text-sm leading-relaxed text-muted">
         {project.blurb}
       </p>
 
-      <p className="mt-2 text-xs text-neutral-400">
+      <p className="mt-2 text-xs text-muted">
         {[...project.tags, project.year].filter(Boolean).join(" · ")}
       </p>
     </Link>

@@ -51,7 +51,7 @@ export default async function ProjectPage({ params }) {
     <article>
       <Link
         href="/projects"
-        className="text-sm text-neutral-500 hover:text-neutral-900"
+        className="text-sm text-muted hover:text-fg"
       >
         Back to projects
       </Link>
@@ -60,30 +60,30 @@ export default async function ProjectPage({ params }) {
         {project.title}
       </h1>
 
-      <p className="mt-2 text-sm text-neutral-400">
+      <p className="mt-2 text-sm text-muted">
         {meta.filter(Boolean).join(" · ")}
       </p>
 
       {project.thesis && (
-        <p className="mt-1 text-sm text-neutral-500">
+        <p className="mt-1 text-sm text-muted">
           {project.thesis.institution} · Supervised by{" "}
           {joinNames(project.thesis.supervisors)}
         </p>
       )}
 
       {project.course && (
-        <p className="mt-1 text-sm text-neutral-500">
+        <p className="mt-1 text-sm text-muted">
           DTU course{" "}
           <a
             href={project.course.url}
-            className="underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
+            className="underline decoration-line underline-offset-4 hover:text-fg"
           >
             {project.course.code} {project.course.name}
           </a>
         </p>
       )}
 
-      <div className="relative mt-8 aspect-[3/2] overflow-hidden rounded-md bg-neutral-100">
+      <div className="relative mt-8 aspect-[3/2] overflow-hidden rounded-md bg-surface">
         <Image
           src={project.thumbnail}
           alt=""
@@ -124,7 +124,7 @@ export default async function ProjectPage({ params }) {
             <a
               key={link.label}
               href={link.href}
-              className="text-neutral-500 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
+              className="text-muted underline decoration-line underline-offset-4 hover:text-fg"
             >
               {link.label}
             </a>

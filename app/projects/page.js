@@ -16,7 +16,7 @@ export default function ProjectsPage() {
     <section>
       <h1 className="text-3xl font-medium tracking-tight">Projects</h1>
 
-      <p className="mt-4 leading-relaxed text-neutral-600">
+      <p className="mt-4 leading-relaxed text-muted">
         Coursework, thesis work, and things I built on my own time.
       </p>
 
