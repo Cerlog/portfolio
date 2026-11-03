@@ -43,6 +43,13 @@ links:                                  # external links, e.g. the code
   - { label: Code, href: "https://github.com/..." }
 files:                                  # downloads, must be in public/files/
   - { label: Report (PDF), path: /files/thesis.pdf }
+course:                                 # optional, for DTU course projects
+  code: "02456"                         # quoted, so YAML keeps the leading zero
+  name: Deep Learning                   # from the course table below
+  url: https://kurser.dtu.dk/course/02456
+group: true                             # optional: shows "Group project"
+github: https://github.com/...          # optional: shown as "Code on GitHub"
+poster: /files/posters/x.pdf            # optional: must exist; redacted if needed
 draft: true                             # optional: only visible in `npm run dev`
 ---
 ```

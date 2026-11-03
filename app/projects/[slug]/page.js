@@ -25,7 +25,20 @@ export default async function ProjectPage({ params }) {
 
   if (!project) notFound();
 
-  const meta = [TYPE_LABELS[project.type], ...project.tags, project.year];
+  const meta = [
+    TYPE_LABELS[project.type],
+    project.group ? "Group project" : null,
+    ...project.tags,
+    project.year,
+  ];
+  const downloads = [
+    ...(project.poster ? [{ label: "Poster (PDF)", path: project.poster }] : []),
+    ...project.files,
+  ];
+  const links = [
+    ...(project.github ? [{ label: "Code on GitHub", href: project.github }] : []),
+    ...project.links,
+  ];
 
   return (
     <article>
@@ -44,6 +57,18 @@ export default async function ProjectPage({ params }) {
         {meta.filter(Boolean).join(" · ")}
       </p>
 
+      {project.course && (
+        <p className="mt-1 text-sm text-neutral-500">
+          DTU course{" "}
+          <a
+            href={project.course.url}
+            className="underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
+          >
+            {project.course.code} {project.course.name}
+          </a>
+        </p>
+      )}
+
       <div className="relative mt-8 aspect-[3/2] overflow-hidden rounded-md bg-neutral-100">
         <Image
           src={project.thumbnail}
@@ -60,11 +85,11 @@ export default async function ProjectPage({ params }) {
         dangerouslySetInnerHTML={{ __html: project.html }}
       />
 
-      {project.files.length > 0 && (
+      {downloads.length > 0 && (
         <section className="mt-12">
           <h2 className="text-sm font-medium">Downloads</h2>
           <ul className="mt-3 space-y-2 text-sm">
-            {project.files.map((file) => (
+            {downloads.map((file) => (
               <li key={file.path}>
                 <a
                   href={file.path}
@@ -79,9 +104,9 @@ export default async function ProjectPage({ params }) {
         </section>
       )}
 
-      {project.links.length > 0 && (
+      {links.length > 0 && (
         <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm">
-          {project.links.map((link) => (
+          {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
