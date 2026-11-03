@@ -9,7 +9,7 @@ course:
   url: https://kurser.dtu.dk/course/02506
 group: true
 poster: /files/posters/02506-em-membrane-segmentation-poster.pdf
-thumbnail: /thumbs/em-membrane-segmentation.png
+thumbnail: /thumbs/em-membrane-segmentation.jpg
 featured: false
 blurb: A U-Net that traces cell membranes in electron microscopy images, compared across image sizes, augmentation and patching, then applied to slices of a human nerve.
 links: []

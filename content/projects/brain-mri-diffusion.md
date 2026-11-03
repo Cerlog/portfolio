@@ -9,7 +9,7 @@ course:
   url: https://kurser.dtu.dk/course/02501
 group: true
 poster: /files/posters/02501-brain-tumour-mri-diffusion-poster.pdf
-thumbnail: /thumbs/brain-mri-diffusion.png
+thumbnail: /thumbs/brain-mri-diffusion.jpg
 featured: false
 blurb: Vision-language models wrote descriptions of brain MRI scans; we used them to fine-tune Stable Diffusion so the tumour's location, size and shape can be set in the prompt.
 links: []
