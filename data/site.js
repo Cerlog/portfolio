@@ -4,6 +4,8 @@ export const site = {
   name: "Petr",
   fullName: "Petr Boska Nylander",
   title: "Petr — Machine Learning & Data Science",
+  // One line under the name on the front page.
+  role: "MSc in Mathematical Modelling and Computation · Machine learning & data science",
   description:
     "Personal website of Petr Boska Nylander, MSc graduate in Mathematical Modelling and Computation from DTU.",
 
@@ -18,7 +20,7 @@ export const site = {
     My studies covered statistics, machine learning, optimization, deep learning,
     computer vision and large-scale data analysis.`,
 
-    `For my MSc thesis at
+    `For my <a href="/projects/pipe-failure-prediction">MSc thesis</a> at
     <a href="https://sustain.dtu.dk/" target="_blank" rel="noreferrer">DTU Sustain</a>,
     supervised by
     <a href="https://www.dtu.dk/english/person/roland-lowe?id=66407" target="_blank" rel="noreferrer">
@@ -45,7 +47,7 @@ export const site = {
 
     `Before DTU, I studied at
     <a href="https://ruc.dk/en" target="_blank" rel="noreferrer">Roskilde University</a>,
-    where I received my BSc in Natural Science (Mathematical Modelling and Computation). My bachelor project, supervised by
+    where I received my BSc in Natural Science (Mathematical Modelling and Computation). My <a href="/projects/bsc-thesis-camp-oscillations">bachelor project</a>, supervised by
     <a href="https://forskning.ruc.dk/en/persons/johnny/" target="_blank" rel="noreferrer">
     Johnny T. Ottesen</a>, focused on analysing, simulating and simplifying a physiological
     system described by nine coupled differential equations.`,
@@ -60,7 +62,54 @@ export const site = {
   ],
 
   photo: "/me.jpg",
-  cv: "/cv.pdf",
+
+  // TODO: replace the placeholder PDFs in public/files/ with the real CVs.
+  cv: {
+    en: "/files/cv-en.pdf",
+    da: "/files/cv-da.pdf",
+  },
+
+  // One line per degree on the front page. `thesis` links to the thesis page.
+  education: [
+    {
+      degree: "MSc in Mathematical Modelling and Computation",
+      school: "Technical University of Denmark (DTU)",
+      years: "2024–2026",
+      thesis: "/projects/pipe-failure-prediction",
+    },
+    {
+      degree: "BSc in Natural Science (Mathematical Modelling and Computation)",
+      school: "Roskilde University",
+      years: "2021–2024",
+      thesis: "/projects/bsc-thesis-camp-oscillations",
+    },
+  ],
+
+  experience: [
+    {
+      role: "Teaching assistant",
+      // TODO: Petr to fill in: the university and the two years.
+      place: "TODO: university",
+      years: "TODO: years",
+      detail:
+        "Calculus; Introduction to Programming with Java; Introduction to Data Analysis with Python",
+    },
+  ],
+
+  // Relevant DTU courses. `project` is the slug of a project page; courses
+  // without one link to https://kurser.dtu.dk/course/<code>.
+  coursework: [
+    { code: "02456", name: "Deep Learning", project: "rstar-robustness" },
+    { code: "02460", name: "Advanced Machine Learning", project: "vae-priors-flows-diffusion" },
+    { code: "02476", name: "Machine Learning Operations", project: "mlops-captcha" },
+    { code: "02477", name: "Bayesian Machine Learning" },
+    { code: "02501", name: "Advanced Deep Learning in Computer Vision", project: "brain-mri-diffusion" },
+    { code: "02506", name: "Advanced Image Analysis", project: "em-membrane-segmentation" },
+    { code: "02516", name: "Introduction to Deep Learning in Computer Vision", project: "hotdog-cnn-classifier" },
+    { code: "02807", name: "Computational Tools for Data Science", project: "yelp-communities-association-rules" },
+    // TODO: Petr to add more courses here, in the same format:
+    // { code: "0xxxx", name: "Official course name" },
+  ],
 
   links: [
     {

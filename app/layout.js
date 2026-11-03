@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
               <Link href="/projects" className="hover:text-fg">
                 Projects
               </Link>
-              <a href={site.cv} className="hover:text-fg">
+              <a href={site.cv.en} hrefLang="en" className="hover:text-fg">
                 CV
               </a>
             </nav>
