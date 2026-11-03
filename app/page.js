@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/data/projects";
+import { getAllProjects } from "@/lib/projects";
 import { site } from "@/data/site";
 
 export default function Home() {
-  const featured = projects.filter((p) => p.featured);
+  const featured = getAllProjects().filter((p) => p.featured);
 
   return (
     <>

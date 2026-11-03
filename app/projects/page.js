@@ -1,5 +1,5 @@
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/data/projects";
+import { getAllProjects } from "@/lib/projects";
 
 export const metadata = {
   title: "Projects",
@@ -15,7 +15,7 @@ export default function ProjectsPage() {
       </p>
 
       <div className="mt-12 grid gap-10 sm:grid-cols-2">
-        {projects.map((project) => (
+        {getAllProjects().map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
       </div>

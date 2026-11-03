@@ -9,7 +9,7 @@ export default function ProjectCard({ project }) {
     >
       <div className="relative aspect-[3/2] overflow-hidden rounded-md bg-neutral-100">
         <Image
-          src={project.image}
+          src={project.thumbnail}
           alt=""
           fill
           sizes="(max-width: 640px) 100vw, 320px"
