@@ -73,7 +73,17 @@ the colour tokens defined there.
 - Figures come only from `inbox/images/<course code>/`. If a page needs a figure that
   isn't there, use a placeholder image and leave a TODO naming the figure Petr should
   export.
-- Posters (`*_poster*.pdf`) may be published.
+- Posters (`*_poster*.pdf`, any capitalisation) may be published, but NEVER with
+  student numbers on them (`s` + six digits). For every poster:
+  1. Check the text layer and an OCR of a 300 dpi render for student numbers.
+  2. If there are any, make a redacted copy: render each page to a 300 dpi image, cover the
+     numbers, and save the images as a new PDF in `public/files/posters/`.
+  3. Confirm by extracting text from the new file (and OCR) that no number can be found,
+     and look at the author line by eye: tiny subscript numbers can escape OCR.
+  4. Tell Petr which posters were redacted, so he can re-export them from the source file
+     if he has it.
+  Posters without student numbers can be copied to `public/files/posters/` unchanged.
+  Credit groupmates by name only, never with student numbers.
 - `*_github.md` files contain the repository link for that course.
 - Never invent results, numbers or claims. Only use what is in the material.
 
@@ -83,7 +93,21 @@ One Markdown file in `content/projects/`.
 - Frontmatter: title, year, tags, course (code, official name, and URL
   `https://kurser.dtu.dk/course/<code>`), group project yes/no, GitHub link, poster path
   if one exists, thumbnail.
-- Fetch each course page to get the official course name. Don't guess it.
+- Official course names (confirmed by Petr; kurser.dtu.dk blocks automated fetching).
+  Link each to `https://kurser.dtu.dk/course/<code>`:
+
+  | Code  | Official name                                   |
+  | ----- | ----------------------------------------------- |
+  | 02456 | Deep Learning                                   |
+  | 02460 | Advanced Machine Learning                       |
+  | 02476 | Machine Learning Operations                     |
+  | 02477 | Bayesian Machine Learning                       |
+  | 02501 | Advanced Deep Learning in Computer Vision       |
+  | 02506 | Advanced Image Analysis                         |
+  | 02516 | Introduction to Deep Learning in Computer Vision |
+  | 02807 | Computational Tools for Data Science            |
+
+  For a course not in this table, ask Petr for the name. Don't guess it.
 - Sections: a one-sentence summary; "The assignment" (task and learning goals, short);
   "What we did" (approach); "Results"; "My contribution" (left as a TODO for Petr to
   write); figures.
