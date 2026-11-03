@@ -101,7 +101,7 @@ export default async function ProjectPage({ params }) {
           alt=""
           fill
           sizes="(max-width: 672px) 100vw, 672px"
-          className="object-cover"
+          className="bg-figure object-cover"
           priority
         />
       </div>

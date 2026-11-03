@@ -13,7 +13,7 @@ export default function ProjectCard({ project }) {
           alt=""
           fill
           sizes="(max-width: 640px) 100vw, 320px"
-          className="object-cover"
+          className="bg-figure object-cover"
         />
       </div>
 
