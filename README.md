@@ -81,9 +81,16 @@ These are summarised here; `CLAUDE.md` has the full versions.
 
 ## Design
 
-Quiet and typographic: one typeface (Inter), two weights, a neutral palette and
-one blue accent, used only for links and focus states. All colours are tokens in
-`app/globals.css`, and dark mode follows the system setting.
+Quiet and typographic: Source Serif 4 for text at two weights, the system sans
+only for navigation and meta lines, a neutral palette and one petrol accent for
+links and focus states. On desktop a left column holds the name, bio, navigation
+and CV; work is shown as figure-led rows, and project pages put references in the
+margin as sidenotes. All colours are tokens in `app/globals.css`, and dark mode
+follows the system setting.
 
-The Inter font files in `app/fonts/` are used for the preview images and are
+`npm run shots` (with `npx next start` running) screenshots every page at four
+widths in light and dark mode into `.shots/` and reports layout, alt-text and
+contrast problems.
+
+The Source Serif 4 font files in `app/fonts/` are used for the preview images and are
 licensed under the SIL Open Font License (`app/fonts/OFL.txt`).

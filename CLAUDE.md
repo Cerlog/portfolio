@@ -21,8 +21,13 @@ managers who skim for 30 seconds, then maybe open one project or the CV.
 - `content/projects/<slug>.md` — one Markdown file per project/poster/report. The
   filename is the URL slug (`/projects/<slug>`). Pages are generated from these files.
 - `lib/projects.js` — reads and validates the Markdown files at build time.
-- `lib/markdown.js` — the remark/rehype pipeline; `lib/remark-callouts.js` and
-  `lib/rehype-figures.js` are the two small custom plugins.
+- `lib/markdown.js` — the remark/rehype pipeline; `lib/remark-callouts.js`,
+  `lib/rehype-figures.js` and `lib/rehype-sidenotes.js` are the small custom plugins.
+- `components/SiteChrome.js` — the left column (photo, name, role, bio, navigation, CV and
+  contact links) and the main column; `components/WorkRow.js` — one figure-led project row.
+- `scripts/shots.mjs` — `npm run shots` screenshots every page (375, 1024, 1280, 1440 px,
+  light and dark) into `.shots/` and reports sideways scrolling, missing alt text, heading
+  and contrast problems. Run it against `npx next start` after UI changes.
 - `public/` — static files. Downloads go in `public/files/`, thumbnails in `public/thumbs/`,
   images used inside a project's text in `public/images/<slug>/`.
 - Content stays in `data/` and `content/`; components never contain hard-coded personal text.
@@ -65,7 +70,10 @@ The body supports GitHub-flavoured Markdown (tables, footnotes, task lists),
 - Raw HTML in Markdown is ignored.
 
 `content/projects/markdown-demo.md` (a draft) shows every feature; use it to check styling.
-Styles for rendered Markdown live in the `.prose` block in `app/globals.css` and use only
+Footnotes (`[^id]`) become sidenotes in the right margin on wide screens (80rem and up)
+and stay as numbered footnotes at the end of the page otherwise; a plain `> [!note]`
+callout moves into the margin the same way. Use footnotes for references and asides only.
+Styles for rendered Markdown live in the `.article` block in `app/globals.css` and use only
 the colour tokens defined there.
 
 ## Source material rules
@@ -166,16 +174,26 @@ The site should look like a careful person made it by hand, not like a template.
 Reference for tone: lukasrasocha.com — quiet, typographic, content first.
 
 Do:
-- One typeface family (currently Inter), at most two weights on a page.
-- Neutral palette (near-black on white, greys for secondary text) plus ONE accent
-  colour used sparingly, for links and focus states only.
-- Generous whitespace, a single reading column for text pages, a simple grid for tiles.
+- Typefaces: Source Serif 4 for all text, at 400 and 600 only (plus italic for captions
+  and emphasis); the system sans (`.ui`) only for navigation, meta lines, labels and
+  tables; KaTeX's own fonts for maths. No other webfonts.
+- Type scale: 18px base, ratio 1.25 (`--step--1` to `--step-2` in `globals.css`), 17px on
+  phones.
+- Neutral palette (near-black on white, greys for secondary text) plus ONE accent,
+  petrol `#1d5468` (`#7fb8c4` in dark mode), used for links and focus states only.
+- Layout: a left column on desktop (64rem and up) that stays in place while the main
+  column scrolls; one column on phones, with the work right after the short bio. Text
+  pages keep a 34em reading column; work is shown as figure-led rows, not cards.
+- Figures are numbered ("Figure 1.") with an italic caption; no rounded corners, borders
+  or shadows on images.
 - Real content over decoration: thumbnails are actual figures/posters from the work.
 - Subtle interaction only: colour/underline change on hover, no movement.
 - Keep pages fast and readable without JavaScript.
 
 Don't:
 - No gradients, glassmorphism, glowing shadows, blobs, particles, or animated backgrounds.
+- No cards with rounded corners or shadows, no ALL-CAPS labels, no arrows on links, no
+  icons in the left column, no cream/terracotta or neon-on-dark palettes.
 - No emoji, no icon spam, no "Hi, I'm Petr 👋" hero, no typing-effect text.
 - No skill bars or percentage ratings.
 - No new UI/animation libraries without asking first.
