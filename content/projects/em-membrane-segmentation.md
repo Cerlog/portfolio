@@ -24,12 +24,6 @@ the same pipeline to find myelinated axons in slices of a human nerve.
 > A group project in DTU's Advanced Image Analysis course, presented as a
 > poster, with Casper Brun Pedersen and Mads Prip.
 
-## The assignment
-
-TODO: there is no DTU project description for 02506 in the source material, so
-this section can't be summarised yet. Add the brief to inbox/, or write one or
-two sentences on what the task was.
-
 ## What we did
 
 - **Data.** The ISBI Challenge dataset of electron microscopy (EM) images of

@@ -43,8 +43,7 @@ saliency maps to explain what the trained network responds to.
   pooling), trained with binary cross-entropy, batch size 64, a learning rate of
   0.0001 and early stopping. Each result is averaged over five runs.
 - **Step-by-step tuning.** The baseline overfitted: 91.6 % training accuracy
-  against 77.0 % on validation. We added one change at a time and kept what
-  helped:
+  against 77.0 % on validation. We added one change at a time:
   - dropout 0.7
   - batch normalisation on every layer
   - Adam with a weight decay of 1e-5

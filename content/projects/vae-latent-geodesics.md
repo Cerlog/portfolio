@@ -65,15 +65,15 @@ distances.
   most geodesics varied little, but 5 of the 25 varied noticeably more. These
   probably run through regions with little training data, where the decoders
   disagree most. They show up as the lighter areas in the right panel below.
-- **More decoders, more stable distances.** The geodesic CoV fell as decoders
-  were added: from about 0.22 with one decoder to about 0.18 with three. The
-  Euclidean CoV stayed constant, because it depends only on the encoder. This
+- **More decoders, more stable distances.** The geodesic CoV fell steadily as
+  decoders were added, from one to two to three. The Euclidean CoV stayed
+  constant, because it depends only on the encoder. This
   agrees with Syrota et al.'s finding that decoder ensembles capture model
   uncertainty.
 
 ![Two latent-space plots of three digit classes with 25 geodesics drawn between point pairs. Left: a single decoder on a white background. Right: an ensemble, over a heat map of decoder uncertainty that is low near the data and high away from it.](/images/vae-latent-geodesics/mp2-geodesics.png "Geodesics between random latent pairs. Left: one decoder. Right: an ensemble of three, with decoder uncertainty in the background.")
 
-![Line chart of the coefficient of variation against the number of decoders (1 to 3): the Euclidean CoV is flat at about 0.225, while the geodesic CoV drops from about 0.223 to 0.184.](/images/vae-latent-geodesics/mp2-cov.png "Coefficient of variation across training runs for 1, 2 and 3 decoders.")
+![Line chart of the coefficient of variation against the number of decoders (1 to 3): the Euclidean CoV stays flat, while the geodesic CoV falls with each added decoder.](/images/vae-latent-geodesics/mp2-cov.png "Coefficient of variation across training runs for 1, 2 and 3 decoders.")
 
 ## My contribution
 

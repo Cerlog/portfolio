@@ -69,10 +69,6 @@ reports out of public reach. The project brief was to work around this:
 
 ![A reference MRI with a tumour, followed by five generated scans, each from a prompt with one attribute changed: no tumour, location, size, shape and intensity.](/images/brain-mri-diffusion/generated-mri.png "Generated scans: starting from one structured prompt, each image changes a single attribute.")
 
-<!-- TODO: the poster's ViT classification result (real vs. synthetic training
-data) is an empty placeholder box, so there is no number to report. Add it if
-it exists elsewhere. -->
-
 ## My contribution
 
 TODO: Petr to write: which parts of the project were mine.
